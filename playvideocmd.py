@@ -1,11 +1,12 @@
 import os 
 import sys
 import cv2
+import termcolor
 from PIL import Image
 
 # Ascii characters used to create the output 
 ASCII_CHARS = ["@", "#", "S", "%", "?", "*", "+", ";", ":", ",", "."]
-
+COLOR = ["red" "blue" "green" "purple" "orange"]
 def resized_gray_image(image ,new_width=70):
 	width,height = image.size
 	aspect_ratio = height/width
@@ -15,7 +16,7 @@ def resized_gray_image(image ,new_width=70):
 
 def pix2chars(image):
 	pixels = image.getdata()
-	characters = "".join([ASCII_CHARS[pixel//25] for pixel in pixels])
+	characters = "".join([COLOR][ASCII_CHARS[pixel//25] for pixel in pixels])
 	return characters
 
 def generate_frame(image,new_width=70):
